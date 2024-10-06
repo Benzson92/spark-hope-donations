@@ -51,6 +51,7 @@ module.exports = {
       },
     ],
     'no-use-before-define': ['warn', 'nofunc'],
+    'no-console': 'warn',
     // React rules
     'react/jsx-uses-react': 'warn',
     'react/jsx-uses-vars': 'warn',
