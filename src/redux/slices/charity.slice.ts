@@ -1,4 +1,3 @@
-// charity.slice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { CharityStateDTO } from '../../models/charityState.dto';
@@ -7,7 +6,7 @@ import { CharityDTO } from '../../models/charity.dto';
 import { fetchCharitiesThunk } from '../thunks/charity.thunk';
 
 const initialState: CharityStateDTO = {
-  charities: [], // List of CharityDTO[]
+  charities: [],
   loading: false,
   errorMessage: undefined,
 };
@@ -15,23 +14,15 @@ const initialState: CharityStateDTO = {
 const charitySlice = createSlice({
   name: 'charity',
   initialState,
-  reducers: {
-    addCharity: (state, action: PayloadAction<CharityDTO>) => {
-      state.charities.push(action.payload);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchCharitiesThunk.pending, (state) => {
         state.loading = true;
-
-        console.log('Fetching charities...');
       })
       .addCase(fetchCharitiesThunk.fulfilled, (state, action: PayloadAction<CharityDTO[]>) => {
         state.charities = action.payload;
         state.loading = false;
-
-        console.log('Charities fetched:', action.payload);
       })
       .addCase(fetchCharitiesThunk.rejected, (state, action) => {
         state.loading = false;
@@ -39,7 +30,5 @@ const charitySlice = createSlice({
       });
   },
 });
-
-export const { addCharity } = charitySlice.actions;
 
 export default charitySlice.reducer;

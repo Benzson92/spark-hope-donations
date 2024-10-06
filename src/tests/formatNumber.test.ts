@@ -1,4 +1,3 @@
-// src/helpers/formatNumber.test.ts
 import { formatNumber } from '../utils/formatNumber.util';
 
 describe('formatNumber', () => {

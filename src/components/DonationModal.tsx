@@ -4,28 +4,26 @@ import styled from 'styled-components';
 import Chip from './Chip';
 import DonateButton from './DonateButton.styles';
 
-// TypeScript props definition for DonationModal
 interface DonationModalProps {
   isOpen: boolean;
   onClose: () => void;
   selectedAmount: number;
-  currency: string; // Added currency prop
+  currency: string;
   handleAmountChange: (amount: number) => void;
-  onDonate: () => void; // Triggered when the user confirms donation
+  onDonate: () => void;
 }
 
-// Styled-components for Modal
 const ModalOverlay = styled.div`
-  position: absolute; /* Make it contained within the card */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.75); /* Adjust opacity */
+  background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: inherit; /* Keep the border-radius of the card */
+  border-radius: inherit;
   z-index: 10;
 `;
 
@@ -33,10 +31,8 @@ const ModalContent = styled.div`
   background-color: white;
   border-radius: inherit;
   padding: 20px;
-  /* max-width: 400px; */
   width: 100%;
   height: 100%;
-  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -51,15 +47,12 @@ const ModalTitle = styled.h2`
 `;
 
 const CloseButton = styled.button`
-  /* background: transparent; */
-  /* border: none; */
   font-size: 2rem;
   color: #777;
   position: absolute;
   top: 0;
   right: 0;
   padding: 0.5rem 1rem;
-  /* cursor: pointer; */
 
   &:hover {
     color: #333;
@@ -71,24 +64,7 @@ const AmountOptions = styled.div`
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  /* margin-bottom: 20px; */
 `;
-
-// const DonateButton = styled.button`
-//   width: 100%;
-//   padding: 12px;
-//   background-color: #1a53f0;
-//   color: white;
-//   font-weight: 600;
-//   font-size: 1rem;
-//   border-radius: 8px;
-//   cursor: pointer;
-//   transition: background-color 0.2s;
-
-//   &:hover {
-//     background-color: #357ab9;
-//   }
-// `;
 
 const amounts = [10, 20, 50, 100, 500];
 
@@ -96,9 +72,9 @@ const DonationModal: React.FC<DonationModalProps> = ({
   isOpen,
   onClose,
   selectedAmount,
-  currency, // Added currency prop
+  currency,
   handleAmountChange,
-  onDonate, // Renamed from handlePay to onDonate
+  onDonate,
 }) => {
   if (!isOpen) return null;
 
@@ -118,7 +94,7 @@ const DonationModal: React.FC<DonationModalProps> = ({
           ))}
         </AmountOptions>
         <DonateButton onClick={onDonate}>
-          Donate {selectedAmount} {currency} {/* Updated to use currency prop */}
+          Donate {selectedAmount} {currency}
         </DonateButton>
       </ModalContent>
     </ModalOverlay>

@@ -1,6 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import HtmlWebpackPlugin from 'html-webpack-plugin'; // No need to import webpack anymore
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,9 +15,6 @@ const config = {
   },
 
   resolve: {
-    // alias: {
-    //   '@': path.resolve(__dirname, 'src'), // Shorten imports with alias
-    // },
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
 
@@ -28,11 +25,11 @@ const config = {
       directory: path.join(__dirname, 'public'),
     },
     compress: true,
-    hot: true, // Enable HMR, no need for the plugin
+    hot: true,
     host: '0.0.0.0',
     port: 3000,
     historyApiFallback: true,
-    liveReload: true, // Enable live reload
+    liveReload: true,
   },
 
   module: {

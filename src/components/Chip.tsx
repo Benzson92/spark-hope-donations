@@ -11,7 +11,6 @@ const ChipWrapper = styled.div<{ selected: boolean }>`
   padding: 8px 16px;
   border-radius: 20px;
   border: 2px solid ${({ selected }) => (selected ? '#1a53f0' : '#ccc')};
-  /* background-color: ${({ selected }) => (selected ? '#e5f1fc' : '#fff')}; */
   color: ${({ selected }) => (selected ? '#1a53f0' : '#333')};
   cursor: pointer;
   display: inline-flex;
@@ -24,7 +23,6 @@ const ChipWrapper = styled.div<{ selected: boolean }>`
     border-color 0.3s;
 
   &:hover {
-    /* background-color: #e5f1fc; */
     border-color: #4a90e2;
   }
 `;

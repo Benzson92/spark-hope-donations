@@ -5,33 +5,15 @@ import { fetchDonationsThunk, saveDonationThunk } from '../thunks/donation.thunk
 
 const initialState = {
   totalDonated: 0,
-  donations: [] as DonationDTO[], // Renamed from payments to donations
+  donations: [] as DonationDTO[],
   loading: false,
-  // error: null as string | null,
   statusMessage: '',
 };
 
 const donationSlice = createSlice({
   name: 'donation',
   initialState,
-  reducers: {
-    addDonation: (state, action: PayloadAction<DonationDTO>) => {
-      state.donations.push(action.payload);
-      state.totalDonated += action.payload.amount;
-    },
-    // setMessage: (state, action: PayloadAction<string>) => {
-    //   state.message = action.payload;
-    // },
-    // clearMessage: (state) => {
-    //   state.message = '';
-    // },
-    // resetDonationState: (state) => {
-    //   state.totalDonated = initialState.totalDonated;
-    //   state.message = initialState.message;
-    //   state.payments = [];
-    //   state.charities = [];
-    // },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchDonationsThunk.pending, (state) => {
@@ -53,8 +35,6 @@ const donationSlice = createSlice({
         state.donations.push(action.payload);
         state.totalDonated += action.payload.amount;
         state.loading = false;
-
-        console.log('Donation saved:', action.payload);
       })
       .addCase(saveDonationThunk.rejected, (state, action) => {
         state.loading = false;
@@ -63,5 +43,4 @@ const donationSlice = createSlice({
   },
 });
 
-export const { addDonation } = donationSlice.actions;
 export default donationSlice.reducer;

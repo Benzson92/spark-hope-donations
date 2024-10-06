@@ -1,14 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { fetchDonations, saveDonation } from '../../services/api'; // Renamed API calls directly
-import { DonationDTO } from '../../models/donation.dto'; // Using DonationDTO
+import { fetchDonations, saveDonation } from '../../services/api';
+import { DonationDTO } from '../../models/donation.dto';
 
-// Fetch Donations Thunk
 export const fetchDonationsThunk = createAsyncThunk<DonationDTO[], void, { rejectValue: string }>(
   'donations/fetchDonations',
   async (_, thunkAPI) => {
     try {
-      const donations = await fetchDonations(); // Directly call fetchDonations without aliasing
+      const donations = await fetchDonations();
       return donations;
     } catch (_error) {
       return thunkAPI.rejectWithValue('Failed to fetch donations');
@@ -16,14 +15,13 @@ export const fetchDonationsThunk = createAsyncThunk<DonationDTO[], void, { rejec
   }
 );
 
-// Save Donation Thunk
 export const saveDonationThunk = createAsyncThunk<
   DonationDTO,
   Omit<DonationDTO, 'id'>,
   { rejectValue: string }
 >('donations/saveDonation', async (donation, thunkAPI) => {
   try {
-    const savedDonation = await saveDonation(donation); // Directly call saveDonation without aliasing
+    const savedDonation = await saveDonation(donation);
     return savedDonation;
   } catch (_error) {
     return thunkAPI.rejectWithValue('Failed to save donation');
