@@ -29,6 +29,16 @@ describe('CharityCard Component', () => {
     expect(screen.getByText('Select the amount to donate (USD)')).toBeInTheDocument();
   });
 
+  test('updates donation amount correctly', () => {
+    render(<CharityCard charity={charityMock} onDonate={mockOnDonate} />);
+
+    fireEvent.click(screen.getByText('Donate'));
+    fireEvent.click(screen.getByText('50 USD'));
+
+    const donateButton = screen.getByText('Donate 50 USD');
+    expect(donateButton).toBeInTheDocument();
+  });
+
   test('calls onDonate with correct parameters on donation', () => {
     render(<CharityCard charity={charityMock} onDonate={mockOnDonate} />);
 
