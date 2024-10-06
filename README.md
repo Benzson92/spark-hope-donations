@@ -1,70 +1,126 @@
-<p align="center">
-  <a href='https://www.omise.co'>
-    <img src="https://cdn.omise.co/assets/omise-logo/omise-wordmark.png" width="300" />
-  </a>
-</p>
+# Spark Hope Donations
 
-**Tamboon React** is a code challenge for frontend developer.
+**Empower change through donations.** One contribution can make an infinite impact and shape a brighter future for countless lives.
 
-## Scenario
+## Overview
 
-Once upon a time.. nope!  
-So here, you have been temporarily hired by Omise and assigned to work on the charity donation project which the previously assigned front-end developer and designer got the urgent matters to solve, so they will not be able to finish the project on time..
+**Spark Hope Donations** is a web-based platform that allows users to explore various charitable organizations and contribute to them directly. Built with modern technologies like React, Redux, and TypeScript, it features state management with Redux Toolkit, a mock API with JSON Server, and styled components for modern UI design. The application offers an intuitive donation interface and is fully tested using Jest and React Testing Library.
 
-Fortunately, the API server is already done. You will need to grab on the requirements and complete the project while ensuring the application to have great engineering and well-design ✨
+## Features
 
-![tamboon-react-screenshot](https://github.com/opn-ooo/challenges/blob/master/challenge-react/resources/tamboon-react-screenshot.jpg)
+- **Charity Listing**: Displays a curated list of charities with key details.
+- **Donation Modal**: Allows users to contribute to a selected charity.
+- **State Management**: Global state management using Redux, with persisted states.
+- **API Integration**: Utilizes a mock API to simulate real-world backend services.
+- **Responsive UI**: Styled with `styled-components` for a clean and modern design.
+- **Notification System**: Provides feedback to users with success/error notifications using `react-toastify`.
+- **Unit Tests**: Comprehensive test coverage for core components and utility functions.
 
-## Mission
+---
 
-Well, grap your guns, stock up your food and bring down your armor. We gonna need it for tonight!  
-**Here are the tasks you must complete:**
+## Table of Contents
 
-- [ ] Complete the application according to the design (image above).
-- [ ] Complete these features that are not in the design (you have freedom to design and position to display).
-  - Display all donation amount.
-  - Display a message when paid.
-- [ ] Make the donation feature works correctly.
-  - Amount in all donations should be displayed correctly despite users close and come back later.
-  - Database (db.json) should have the new valid data when paid.
-- [ ] Refactor the code to be more readable and enhance reusability.
-- [ ] Use [styled-component](https://www.styled-components.com/), [JSS](https://cssinjs.org/) or CSS, for styling part.
-- [ ] Write a nice commit message and order it well.
-- [ ] Display well in most modern browser (Google Chrome, Safari, Firefox).
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Running the Application](#running-the-application)
+- [Testing](#testing)
 
-#### Bonus
+---
 
-- [ ] Supporting different screen sizes (responsive).
-- [ ] Write helpers or components unit tests with [jest](https://facebook.github.io/jest/).
+## Getting Started
 
-## Rules
+### Prerequisites
 
-Desire to win the war? Well, to make it a little more fun, please remember that
+To get the application up and running, you'll need the following installed on your local machine:
 
-**You cannot:**
+- **Node.js** (v14.x or later)
+- **npm** or **Yarn** (Yarn is recommended for this project)
 
-- Change existing behaviors.
-- Change the API server.
-- Change from JavaScript/TypeScript to other languages.
+### Installation
 
-**In the other hand, feel free to:**
+1. **Clone the repository**:
 
-- Improve the design to have better UI and UX.
-- Re-organize the codebase.
-- Create new modules/methods/components.
-- Modify existing code.
-- Add new packages.
-- Update `webpack` config.
-- Change language from JavaScript to TypeScript.
-- Take reasonable time to complete the challenge, no need to rush.
-- Edit `README.md` to add documentation. What have you done or how to run or test your app?
+    ```bash
+    git clone https://github.com/Benzson92/spark-hope-donations.git
+    cd spark-hope-donations
+    ```
 
-**Note**: You can see design inside folder `resources`.
+2. **Install the dependencies**:
 
-## Surprise us!
+    If you're using npm:
 
-You can push the project to your Github then share the link with us, or you can zip the project and send it back to us as well. Your commit message must communicate clearly what has been done in each commit.
+    ```bash
+    npm install
+    ```
 
-If you notice more bugs in the original implementation you can add fixes for those as well. You won't be penalized if you don't. However we ask you not to add more features than the one given in the mission list.
+    If you're using Yarn (recommended):
 
-Let's rock! :metal:
+    ```bash
+    yarn install
+    ```
+
+---
+
+## Project Structure
+
+Here's a high-level overview of the project's structure:
+
+```plaintext
+src/
+├── components/         # Reusable React components (CharityCard, DonationModal, etc.)
+├── models/             # Data models (DTOs) for charity and donation types
+├── redux/              # Redux store configuration, slices, and selectors
+├── services/           # API service for handling HTTP requests
+├── styles/             # Global CSS and styled-components
+├── tests/              # Unit tests for components and utilities
+├── utils/              # Utility functions
+├── App.tsx             # Main application component
+├── index.tsx           # Entry point for rendering the React app
+└── ...
+```
+
+## Running the Application
+
+You'll need to run two services simultaneously: the client (React app) and the server (JSON Server to simulate API responses).
+
+### Development Mode
+
+Start the mock API server:
+
+```bash
+yarn server
+```
+
+This will start the JSON Server at http://localhost:3001 and serve the mock API from db.json.
+
+Start the React development server:
+
+```bash
+yarn client
+```
+
+This will start the React development server at http://localhost:3000.
+
+Now, open your browser and navigate to http://localhost:3000 to view the application.
+
+---
+
+## Testing
+
+This project is fully tested using Jest and React Testing Library. Tests cover components, utilities, and key functionality like rendering and user interactions.
+
+### Running Unit Tests
+
+To run the unit tests:
+
+```bash
+yarn test
+```
+
+This will execute all tests located in the src/tests/ directory. Tests will run in watch mode by default.
+
+To see detailed test coverage, use the following command:
+
+```bash
+yarn test --coverage
+```
