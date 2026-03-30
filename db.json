@@ -121,6 +121,12 @@
       "charitiesId": "3",
       "amount": 500,
       "currency": "THB"
+    },
+    {
+      "id": "a8df",
+      "charitiesId": "4",
+      "amount": 500,
+      "currency": "THB"
     }
   ]
 }
